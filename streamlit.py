@@ -106,7 +106,7 @@ selected_movies = st.multiselect("Choose 10 movies", movie_titles_df["title"].to
 user_ratings = []
 for movie_title in selected_movies:
     movie_id = movie_titles_df[movie_titles_df["title"] == movie_title]["movieId"].values[0]
-    rating = st.slider(f"Rate the movie: {movie_title}", 1, 5, 3)
+    rating = st.slider(f"Rate the movie: {movie_title}", 1.0, 5.0, 3.0, step=0.5, format="%.1f")
     user_ratings.append((999, movie_id, rating))
 
 # When the user submits their ratings
