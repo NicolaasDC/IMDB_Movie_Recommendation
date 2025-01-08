@@ -10,13 +10,13 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Function to load data
-@st.cache
+@st.cache_data(allow_output_mutation=True)
 def load_data():
-    # Read the ratings CSV into a PySpark DataFrame
+    # Your code to load data goes here, for example:
     df_rating = spark.read.csv("MovieLens_data/ratings.csv", header=True, inferSchema=True)
-    # Read the movies CSV into a PySpark DataFrame
     df_movies = spark.read.csv("MovieLens_data/movies.csv", header=True, inferSchema=True)
     return df_rating, df_movies
+
 
 # Function to generate recommendations for the new user
 def generate_recommendations(user_ratings):
