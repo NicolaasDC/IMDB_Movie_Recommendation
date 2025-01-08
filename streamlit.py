@@ -3,6 +3,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, FloatType
 from pyspark.ml.recommendation import ALS
 from pyspark.sql import functions as F
+from pyspark.ml.evaluation import RegressionEvaluator
 
 # Initialize Spark session only once
 if 'spark' not in st.session_state:
@@ -58,6 +59,18 @@ def generate_recommendations(user_ratings):
 
     # Train the ALS model
     model = als.fit(train_data)
+    
+    # Make predictions on the test set
+    predictions = model.transform(test_data)
+
+    # Evaluate the model
+    evaluator = RegressionEvaluator(
+        metricName="rmse",
+        labelCol="rating",
+        predictionCol="prediction"
+    )
+    rmse = evaluator.evaluate(predictions)
+    st.write(f"Root-mean-square error = {rmse:.2f}")
 
     # Create a DataFrame of unrated movies for the new user
     unrated_movies = df_movies.select("movieId").distinct().filter(~df_movies.movieId.isin([row[1] for row in user_ratings]))
@@ -80,14 +93,14 @@ def generate_recommendations(user_ratings):
 
 # Streamlit UI for user input
 st.title("Movie Recommendation System")
-st.write("Please select and rate the following 10 movies:")
+st.write("Please select and rate 10 movies:")
 
 # Load the movie titles from the CSV
 df_rating, df_movies = load_data()
 movie_titles_df = df_movies.select("movieId", "title").toPandas()
 
 # Let the user choose 10 movies
-selected_movies = st.multiselect("Choose 10 movies", movie_titles_df["title"].tolist(), default=movie_titles_df["title"][:10].tolist(), max_selections=10)
+selected_movies = st.multiselect("Choose 10 movies", movie_titles_df["title"].tolist(), default=movie_titles_df["title"][:0].tolist(), max_selections=10)
 
 # Collect ratings from the user for the selected movies
 user_ratings = []
