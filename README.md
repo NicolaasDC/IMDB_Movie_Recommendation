@@ -1,7 +1,7 @@
 # IMDB_Movie_Recommendation
 
-IMDB movie recommendation
 A project to create movie recommendations with a Pyspark ALS model.
+This uses the [MovieLens](https://grouplens.org/datasets/movielens/). small dataset to create the model.
 
 🤖 Usage
 Clone the repository to your local machine.
