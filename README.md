@@ -22,10 +22,10 @@ Enter streamlit run streamlit.py in you terminal.
 A local streamlit page will open in your browser.
 Enter 10 movies and the model will give you 5 suggestions.
 
-##⏱️ Timeline
+## ⏱️ Timeline
 This project took two days for completion. This time included time to study the python libraries.
 
-##👱 Personal Situation
+## 👱 Personal Situation
 This project was done as part of the AI Boocamp at BeCode.org.
 Connect to me on [LinkedIn](https://www.linkedin.com/in/nicolaas-de-clercq-1b369a240/)
 
