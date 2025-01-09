@@ -18,9 +18,13 @@ This uses the [MovieLens](https://grouplens.org/datasets/movielens/) small datas
 
 ## 🤖 Usage
 Clone the repository to your local machine.
+
 Install requirements.txt in your virtual enviroment
+
 Enter streamlit run streamlit.py in you terminal.
+
 A local streamlit page will open in your browser.
+
 Enter 10 movies and the model will give you 5 suggestions.
 
 ## ⏱️ Timeline
