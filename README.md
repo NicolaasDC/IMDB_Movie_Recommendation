@@ -15,6 +15,6 @@ This project took two days for completion. This time included time to study the 
 
 👱 Personal Situation
 This project was done as part of the AI Boocamp at BeCode.org.
-Connect to me on 
+Connect to me on [LinkedIn](https://www.linkedin.com/in/nicolaas-de-clercq-1b369a240/)
 
-[linkedin]([(https://www.linkedin.com/in/nicolaas-de-clercq-1b369a240/))
+
