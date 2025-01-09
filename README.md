@@ -19,7 +19,7 @@ This uses the [MovieLens](https://grouplens.org/datasets/movielens/) small datas
 ## 🤖 Usage
 Clone the repository to your local machine.
 
-Install requirements.txt in your virtual enviroment
+Install requirements.txt in your virtual enviroment.
 
 Enter streamlit run streamlit.py in you terminal.
 
